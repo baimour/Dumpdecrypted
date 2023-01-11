@@ -1,32 +1,32 @@
-Dumps decrypted iPhone Applications to a file - better solution than those GDB scripts for non working GDB versions
+将解密的iPhone应用转储到一个文件中，这比那些非工作GDB版本的GDB脚本更好
 (C) Copyright 2011-2014 Stefan Esser
 
 
-Compile:
+编译：
 
-First adjust the Makefile if you have a different iOS SDK installed.
+如果安装了不同的iOS SDK，请首先调整Makefile
 
-And then just: make
+然后只需要：make
 
 
-Usage:
+用法：
 
-iPod:~ root# DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib /var/mobile/Applications/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Scan.app/Scan
+iPod:~ root# DYLD_INSERT_LIBRARIES=dumpdecrypted.dylib /var/mobile/Applications/xxxx-xxxx-xxxx-xxxx/Scan.app/Scan
 mach-o decryption dumper
 
-DISCLAIMER: This tool is only meant for security research purposes, not for application crackers.
+免责声明：此工具仅用于安全研究目的，不用于应用破解
 
-[+] Found encrypted data at address 00002000 of length 1826816 bytes - type 1.
-[+] Opening /private/var/mobile/Applications/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Scan.app/Scan for reading.
+[+] Found encrypted data at address 00002000 of length 1826816 bytes - type 1
+[+] Opening /private/var/mobile/Applications/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Scan.app/Scan for reading
 [+] Reading header
 [+] Detecting header type
 [+] Executable is a FAT image - searching for right architecture
 [+] Correct arch is at offset 2408224 in the file
-[+] Opening Scan.decrypted for writing.
-[-] Failed opening. Most probably a sandbox issue. Trying something different.
-[+] Opening /private/var/mobile/Applications/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/tmp/Scan.decrypted for writing.
-[+] Copying the not encrypted start of the file
-[+] Dumping the decrypted data into the file
-[+] Copying the not encrypted remainder of the file
-[+] Closing original file
-[+] Closing dump file
+[+] 正在打开Scan.decrypted进行写入
+[-] 打开失败。很可能是沙盒问题。尝试不同的方式
+[+] 正在打开 /private/var/mobile/Applications/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/tmp/Scan.decrypted 进行写入
+[+] 正在复制未加密的文件开头
+[+] 正在将解密的数据转储到文件中
+[+] 正在复制未加密的文件剩余部分
+[+] 正在关闭原始文件
+[+] 正在关闭转储文件
